@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Aural Beauty</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --rosa:#fff8f8;
+  --vino:#b76e79;
+  --vino2:#d9939d;
+  --texto:#6e5d5d;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Poppins,sans-serif;
+  background:var(--rosa);
+  color:var(--texto);
+  overflow-x:hidden;
+}
+
+/* NAV */
+
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  height:90px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 55px;
+  background:rgba(255,255,255,.90);
+  backdrop-filter:blur(10px);
+  z-index:999;
+  box-shadow:0 5px 20px rgba(0,0,0,.05);
+}
+
+.logo{
+  height:60px;
+}
+
+.menu{
+  display:flex;
+  align-items:center;
+  gap:28px;
+}
+
+.menu a{
+  text-decoration:none;
+  color:#7d6a6a;
+  font-weight:500;
+  transition:.3s;
+}
+
+.menu a:hover{
+  color:var(--vino);
+}
+
+.btn-nav{
+  background:linear-gradient(135deg,var(--vino2),var(--vino));
+  padding:14px 24px;
+  border-radius:50px;
+  color:white !important;
+  box-shadow:0 10px 25px rgba(183,110,121,.25);
+}
+
+/* HERO */
+
+header{
+  position:relative;
+  width:100%;
+  height:100vh;
+  overflow:hidden;
+}
+
+.hero-bg{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center top;
+  filter:brightness(.58);
+}
+
+header::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to right,
+    rgba(0,0,0,.55),
+    rgba(0,0,0,.15)
+  );
+  z-index:1;
+}
+
+.hero{
+  position:relative;
+  z-index:2;
+  max-width:650px;
+  padding-top:240px;
+  margin-left:80px;
+  color:white;
+}
+
+.hero h1{
+  font-family:"Playfair Display";
+  font-size:85px;
+  line-height:1;
+  margin-bottom:25px;
+  text-shadow:0 5px 20px rgba(0,0,0,.25);
+}
+
+.hero p{
+  font-size:22px;
+  line-height:1.8;
+  margin-bottom:38px;
+  max-width:560px;
+  color:#f5eaea;
+}
+
+.hero-btn{
+  display:inline-block;
+  padding:18px 38px;
+  border-radius:50px;
+  background:linear-gradient(135deg,#e4aab3,var(--vino));
+  color:white;
+  text-decoration:none;
+  box-shadow:0 12px 30px rgba(183,110,121,.35);
+  transition:.4s;
+}
+
+.hero-btn:hover{
+  transform:translateY(-5px);
+}
+
+/* SECTIONS */
+
+section{
+  padding:100px 70px;
+}
+
+.title{
+  text-align:center;
+  font-family:"Playfair Display";
+  font-size:52px;
+  color:var(--vino);
+  margin-bottom:20px;
+}
+
+.subtitle{
+  text-align:center;
+  max-width:760px;
+  margin:auto;
+  line-height:1.9;
+  margin-bottom:70px;
+  color:#8a7777;
+}
+
+/* SERVICES */
+
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:35px;
+}
+
+/* CARD */
+
+.card{
+  background:white;
+  border-radius:32px;
+  overflow:hidden;
+  box-shadow:0 12px 35px rgba(0,0,0,.06);
+  transition:.45s;
+}
+
+/* IMAGE */
+
+.card-image{
+  width:100%;
+  height:300px;
+  overflow:hidden;
+  background:#f5eaea;
+}
+
+.card-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+  transition:.6s ease;
+}
+
+.card:hover .card-image img{
+  transform:scale(1.06);
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 20px 45px rgba(183,110,121,.18);
+}
+
+/* CONTENT */
+
+.card-content{
+  padding:30px;
+}
+
+.card h3{
+  font-family:"Playfair Display";
+  font-size:34px;
+  color:#7b5f5f;
+  margin-bottom:16px;
+}
+
+.card p{
+  line-height:1.9;
+  color:#7f6d6d;
+  font-size:15px;
+}
+
+/* ABOUT */
+
+.about{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:60px;
+  flex-wrap:wrap;
+}
+
+.about img{
+  width:360px;
+  border-radius:35px;
+  object-fit:cover;
+  box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+.about-text{
+  max-width:560px;
+}
+
+.about-text p{
+  line-height:2;
+  margin-bottom:20px;
+}
+
+/* CTA */
+
+.cta{
+  background:linear-gradient(135deg,#d89aa3,var(--vino));
+  padding:60px;
+  border-radius:35px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:25px;
+  color:white;
+  box-shadow:0 15px 40px rgba(183,110,121,.25);
+}
+
+.cta h2{
+  font-size:42px;
+  margin-bottom:12px;
+}
+
+.cta a{
+  background:white;
+  color:var(--vino);
+  padding:17px 34px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:600;
+}
+
+/* FOOTER */
+
+footer{
+  text-align:center;
+  padding:35px;
+  color:#9a8686;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+  position:fixed;
+  right:25px;
+  bottom:25px;
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  background:#25D366;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  text-decoration:none;
+  font-size:32px;
+  z-index:999;
+  box-shadow:0 12px 30px rgba(0,0,0,.2);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+  nav{
+    padding:15px 20px;
+    flex-direction:column;
+    height:auto;
+    gap:15px;
+  }
+
+  .menu{
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  .hero{
+    margin:0 20px;
+    padding-top:230px;
+    text-align:center;
+  }
+
+  .hero h1{
+    font-size:54px;
+  }
+
+  .hero p{
+    font-size:18px;
+  }
+
+  section{
+    padding:80px 20px;
+  }
+
+  .services{
+    grid-template-columns:1fr;
+  }
+
+  .card-image{
+    height:250px;
+  }
+
+  .about{
+    text-align:center;
+  }
+
+  .about img{
+    width:100%;
+    max-width:330px;
+  }
+
+  .cta{
+    text-align:center;
+    justify-content:center;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+
+<nav>
+
+  <img src="logo-valentina.png" class="logo">
+
+  <div class="menu">
+
+    <a href="#inicio">Inicio</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#sobre">Sobre mí</a>
+
+    <a class="btn-nav"
+    href="https://wa.me/573223400102?text=Hola✨">
+
+      📲 322 340 0102
+
+    </a>
+
+  </div>
+
+</nav>
+
+<!-- HERO -->
+
+<header id="inicio">
+
+  <img src="hero.jpg" class="hero-bg">
+
+  <div class="hero">
+
+    <h1>Aural Beauty</h1>
+
+    <p>
+      Cuidado estético integral enfocado
+      en la salud, bienestar y belleza natural
+      de tu piel.
+    </p>
+
+    <a class="hero-btn"
+    href="https://wa.me/573223400102?text=Hola✨">
+
+      Agenda tu cita
+
+    </a>
+
+  </div>
+
+</header>
+
+<!-- SERVICIOS -->
+
+<section id="servicios">
+
+  <h2 class="title">Servicios</h2>
+
+  <p class="subtitle">
+    Tratamientos delicados y profesionales
+    diseñados para resaltar tu belleza natural.
+  </p>
+
+  <div class="services">
+
+    <!-- FACIAL -->
+
+    <div class="card">
+
+      <div class="card-image">
+        <img src="facial.jpg">
+      </div>
+
+      <div class="card-content">
+
+        <h3>🧴 Facial</h3>
+
+        <p>
+          Limpieza facial profunda, hidratación,
+          manchas, acné y rejuvenecimiento facial.
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- CORPORAL -->
+
+    <div class="card">
+
+      <div class="card-image">
+        <img src="corporal.jpg">
+      </div>
+
+      <div class="card-content">
+
+        <h3>💆‍♀️ Corporal</h3>
+
+        <p>
+          Drenaje linfático, exfoliación y tratamientos
+          relajantes y reafirmantes.
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- MAQUILLAJE -->
+
+    <div class="card">
+
+      <div class="card-image">
+        <img src="maquillaje.jpg">
+      </div>
+
+      <div class="card-content">
+
+        <h3>💄 Maquillaje</h3>
+
+        <p>
+          Maquillaje elegante para eventos especiales,
+          bodas y ocasiones únicas.
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- DEPILACION -->
+
+    <div class="card">
+
+      <div class="card-image">
+        <img src="depilacion.jpg">
+      </div>
+
+      <div class="card-content">
+
+        <h3>🧖‍♀️ Depilación</h3>
+
+        <p>
+          Depilación facial y corporal con técnicas
+          suaves y resultados duraderos.
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- PESTAÑAS -->
+
+    <div class="card">
+
+      <div class="card-image">
+        <img src="pestanas.jpg">
+      </div>
+
+      <div class="card-content">
+
+        <h3>✨ Pestañas</h3>
+
+        <p>
+          Extensiones naturales para una mirada
+          elegante y femenina.
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- ASESORIA -->
+
+    <div class="card">
+
+      <div class="card-image">
+        <img src="asesoria.jpg">
+      </div>
+
+      <div class="card-content">
+
+        <h3>🧠 Asesoría</h3>
+
+        <p>
+          Diagnóstico de piel y recomendaciones
+          personalizadas para tu rutina.
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- LIMPIEZA -->
+
+    <div class="card">
+
+      <div class="card-image">
+        <img src="limpieza-corporal.jpg">
+      </div>
+
+      <div class="card-content">
+
+        <h3>🧼 Limpieza corporal</h3>
+
+        <p>
+          Limpieza profunda que mejora la textura
+          y suavidad de la piel.
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- HIDRATACION -->
+
+    <div class="card">
+
+      <div class="card-image">
+        <img src="hidratacion.jpg">
+      </div>
+
+      <div class="card-content">
+
+        <h3>💧 Hidratación</h3>
+
+        <p>
+          Tratamientos intensivos para devolver
+          frescura y vitalidad a la piel.
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- CEJAS -->
+
+    <div class="card">
+
+      <div class="card-image">
+        <img src="cejas.jpg">
+      </div>
+
+      <div class="card-content">
+
+        <h3>✍️ Diseño de cejas</h3>
+
+        <p>
+          Diseño personalizado para lograr armonía
+          facial y elegancia natural.
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- MASAJES -->
+
+    <div class="card">
+
+      <div class="card-image">
+        <img src="masajes.jpg">
+      </div>
+
+      <div class="card-content">
+
+        <h3>🌿 Masajes</h3>
+
+        <p>
+          Masajes relajantes y terapéuticos para
+          reducir el estrés y renovar energía.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- SOBRE MI -->
+
+<section id="sobre">
+
+  <h2 class="title">Sobre mí</h2>
+
+  <div class="about">
+
+    <img src="sobre-mi.jpg">
+
+    <div class="about-text">
+
+      <p>
+        Soy profesional en estética integral enfocada
+        en el bienestar y cuidado femenino.
+      </p>
+
+      <p>
+        Cada tratamiento está pensado para brindar
+        una experiencia delicada y personalizada.
+      </p>
+
+      <p>
+        Trabajo con técnicas modernas y productos
+        de alta calidad para cuidar tu piel.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CTA -->
+
+<section>
+
+  <div class="cta">
+
+    <div>
+
+      <h2>Agenda tu cita ✨</h2>
+
+      <p>
+        Vive una experiencia premium de belleza.
+      </p>
+
+    </div>
+
+    <a href="https://wa.me/573223400102?text=Hola✨">
+
+      📲 WhatsApp
+
+    </a>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+  ✨ Tu piel en manos profesionales ✨
+
+</footer>
+
+<!-- WHATSAPP -->
+
+<a class="whatsapp"
+href="https://wa.me/573223400102?text=Hola✨">
+
+💬
+
+</a>
+
+</body>
+</html>
